@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Counter Example</title>
+    <style>
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        .circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(55, 163, 209);
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 52px;
+        }
+
+        .button:hover {
+            background-color: lightgray;
+
+        }
+
+        .box {
+            padding: 50px;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row ">
+        <div class="box">
+            <div class="circle">
+                <span id="counter">0</span>
+            </div> <button id="incrementButton" class="button">Increment</button>
+
+        </div><br>
+    </div>
+
+    <script>// Get elements
+        const counter = document.getElementById('counter');
+        const incrementButton = document.getElementById('incrementButton');
+
+        // Counter variable
+        let count = 0;
+
+        // Increment counter and change button background color on click
+        incrementButton.addEventListener('click', function () {
+            count++;
+            counter.textContent = count;
+            incrementButton.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
+        });
+
+        // Helper function to generate random number between 0 and 255
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 256);
+        }
+    </script>
+</body>
+
+</html>
